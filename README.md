@@ -1,2 +1,2 @@
 # Bainc
-Placeholder for Bainc -- a marketplace connecting bands/artists with corporate incubators in the music industry 
+| Bainc -- Social outlet for the music industry connecting bands, artists, studios, and producers |
