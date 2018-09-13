@@ -1,6 +1,6 @@
 //=================dependencies====================//
 const mongoose = require('mongoose')
-const Schema = mongooose.Schema
+const Schema = mongoose.Schema
 //================================================//
 
 //=================Schema========================//
@@ -18,8 +18,7 @@ const UserSchema = new Schema({
     required: true
   },
   avatar: {
-    type: String,
-    required: true
+    type: String
   },
   date: {
     type: Date,

@@ -3,6 +3,8 @@
 const express = require('express')
 //mongoose
 const mongoose = require('mongoose')
+//body parser
+const bodyParser = require('body-parser')
 //set app for express
 const app = express()
 //routes
@@ -11,6 +13,11 @@ const profile = require('./routes/api/profile')
 const posts = require('./routes/api/posts')
 //================================================//
 
+
+//==================body parser====================//
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+//================================================//
 
 
 //===================DB config====================//
@@ -21,7 +28,6 @@ mongoose
   .then(()=> console.log('connected to DB'))
   .catch((err)=> console.log(err))
 //================================================//
-
 
 
 //==========================routes================//
