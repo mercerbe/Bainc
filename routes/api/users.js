@@ -7,6 +7,12 @@ const User = require('../../models/User')
 const gravatar = require('gravatar')
 //bcrypt
 const bcrypt = require('bcryptjs')
+//json web tokens
+const jwt = require('jsonwebtoken')
+//key for JWT
+const keys = require('../../config/keys')
+//passport
+const passport = require('passport')
 //================================================//
 
 //=================routes========================//
@@ -15,7 +21,7 @@ const bcrypt = require('bcryptjs')
 //@access Public
 router.get('/test', (req, res) => res.json( {msg: "user route test is working"} ))
 
-//@route GET api/users/register
+//@route POST api/users/register
 //@desc Register a new user
 //@access Public
 router.post('/register', (req, res) => {
@@ -23,7 +29,7 @@ router.post('/register', (req, res) => {
     .then(user => {
       //user email already registered
       if(user) {
-        return res.status(400).json({ email: 'Email already exists' })
+        return res.status(400).json({ email: 'An account with this email address already exists.' })
       //create new user
       } else {
         //gravatar
@@ -54,10 +60,45 @@ router.post('/register', (req, res) => {
     })
 
 //@route GET api/users/login
-//@desc login an existing user
+//@desc login an existing user and return JWT token
 //@access Public
-
-
+router.post('/login', (req, res) => {
+  const email = req.body.email
+  const password = req.body.password
+  //find user via email
+  User.findOne({ email: req.body.email })
+    .then(user => {
+      //check user
+      if(!user) {
+        return res.status(404).json({ email: 'No users registered with this email address.' })
+      }
+      //check password
+      bcrypt.compare(password, user.password)
+        .then(isMatch => {
+          if(isMatch) {
+            //User match success
+            const payload = { id: user.id, name: user.name, avatar: user.avatar } //JWT payload
+            //Sign Token...expire in 1 hour for security
+            jwt.sign(payload, keys.secretKey, { expiresIn: 3600 }, (err, token) => {
+              res.json({
+                success: true,
+                token: 'Bearer ' + token,
+                msg: 'Successful sign in.'
+              })
+            })
+          } else {
+            return res.status(400).json({password: 'Password does not match email provided.'})
+          }
+        })
+    })
+})
+//@route GET api/users/current
+//@desc Return current user
+//@access Private
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+  //test response token
+  res.json({msg: 'Success, current token still valid with ' +  req.user.name})
+})
 //===============================================//
 
 module.exports = router

@@ -7,6 +7,8 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 //set app for express
 const app = express()
+//passport
+const passport = require('passport')
 //routes
 const users = require('./routes/api/users')
 const profile = require('./routes/api/profile')
@@ -30,13 +32,19 @@ mongoose
 //================================================//
 
 
+//===================passport======================//
+app.use(passport.initialize())
+//passport config with JWT strategy
+require('./config/passport.js')(passport)
+//================================================//
+
+
 //==========================routes================//
 app.get('/', (req, res) => res.send('init'))
 app.use('/api/users', users)
 app.use('/api/profile', profile)
 app.use('/api/posts', posts)
 //===============================================//
-
 
 
 //==========================server================//
