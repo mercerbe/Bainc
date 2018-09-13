@@ -15,6 +15,12 @@ const keys = require('../../config/keys')
 const passport = require('passport')
 //================================================//
 
+
+//===================validation=======================//
+const validateRegisterInput = require('../../validation/register')
+//================================================//
+
+
 //=================routes========================//
 //@route GET api/users/test
 //@desc Tests user route
@@ -25,11 +31,19 @@ router.get('/test', (req, res) => res.json( {msg: "user route test is working"} 
 //@desc Register a new user
 //@access Public
 router.post('/register', (req, res) => {
+
+  //validation
+  const { errors, isValid } = validateRegisterInput(req.body)
+  if(!isValid) {
+    return res.status(400).json(errors)
+  }
+
   User.findOne({ email: req.body.email })
     .then(user => {
       //user email already registered
       if(user) {
-        return res.status(400).json({ email: 'An account with this email address already exists.' })
+        errors.email = 'An account with this email address already exists.'
+        return res.status(400).json(errors)
       //create new user
       } else {
         //gravatar
