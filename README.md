@@ -17,7 +17,7 @@
 ## Errors and bugs
 
 If something is not behaving intuitively, it is a bug and should be reported.
-Report it here by creating an issue: https://github.com/mercerbe/SocialRent/issues
+Report it here by creating an issue: https://github.com/mercerbe/Bainc/issues
 
 Help us fix the problem as quickly as possible by following [Mozilla's guidelines for reporting bugs.](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Bug_writing_guidelines#General_Outline_of_a_Bug_Report)
 
@@ -31,8 +31,8 @@ Your patches are welcome! Here's our suggested workflow:
 
 ## Copyright and attribution
 
-Copyright (c) 2018 TeamTokyo. Released under the [MIT License](https://github.com/mercerbe/SocialRent/LICENSE).
+Copyright (c) 2018 BenMecer. Released under the [MIT License](https://github.com/mercerbe/Bainc/LICENSE).
 
 
-git remote add origin https://github.com/mercerbe/SocialRent.git
+git remote add origin https://github.com/mercerbe/Bainc.git
 git push -u origin master
