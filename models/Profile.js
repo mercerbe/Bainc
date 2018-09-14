@@ -6,7 +6,7 @@ const Schema = mongoose.Schema
 //=================Schema========================//
 const ProfileSchema = new Schema({
   user: {
-    type: Schema.types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'users'
   },
   handle: {
@@ -18,8 +18,7 @@ const ProfileSchema = new Schema({
     type: String
   },//company or band
   website: {
-    type: String,
-    required: true
+    type: String
   },
   location: {
     type: String
@@ -29,7 +28,7 @@ const ProfileSchema = new Schema({
     required: true
   },//band, engineer, producer, promoter, label
   skills: {
-    type: [String]//array of strings-- comma seperated values
+    type: [String],//array of strings-- comma seperated values
     required: true
   },
   bio: {
