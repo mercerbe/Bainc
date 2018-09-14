@@ -9,13 +9,13 @@ module.exports = function validateRegisterInput(data) {
   let errors = {}
 
   //check if name is empty with ternary
-  data.name = !isEmpty(data.name) ? data.name : '';
+  data.name = !isEmpty(data.name) ? data.name : ''
   //check if email is empty with ternary
-  data.email = !isEmpty(data.email) ? data.email : '';
+  data.email = !isEmpty(data.email) ? data.email : ''
   //check if password is empty with ternary
-  data.password = !isEmpty(data.name) ? data.password : '';
+  data.password = !isEmpty(data.password) ? data.password : ''
   //check if passwordCheck is empty with ternary
-  data.passwordCheck = !isEmpty(data.passwordCheck) ? data.passwordCheck : '';
+  data.passwordCheck = !isEmpty(data.passwordCheck) ? data.passwordCheck : ''
 
 
   //check name

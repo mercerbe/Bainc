@@ -18,6 +18,7 @@ const passport = require('passport')
 
 //===================validation=======================//
 const validateRegisterInput = require('../../validation/register')
+const validateLoginInput = require('../../validation/login')
 //================================================//
 
 
@@ -77,6 +78,12 @@ router.post('/register', (req, res) => {
 //@desc login an existing user and return JWT token
 //@access Public
 router.post('/login', (req, res) => {
+
+  //validation
+  const { errors, isValid } = validateLoginInput(req.body)
+  if(!isValid) {
+    return res.status(400).json(errors)
+  }
   const email = req.body.email
   const password = req.body.password
   //find user via email
@@ -84,7 +91,8 @@ router.post('/login', (req, res) => {
     .then(user => {
       //check user
       if(!user) {
-        return res.status(404).json({ email: 'No users registered with this email address.' })
+        errors.email = 'No users registered with this email address.'
+        return res.status(404).json(errors)
       }
       //check password
       bcrypt.compare(password, user.password)
@@ -101,7 +109,8 @@ router.post('/login', (req, res) => {
               })
             })
           } else {
-            return res.status(400).json({password: 'Password does not match email provided.'})
+            errors.password = 'Password does not match email provided.'
+            return res.status(400).json(errors)
           }
         })
     })
