@@ -44,12 +44,13 @@ module.exports = function validateRegisterInput(data) {
   }
   //check passwordCheck for empty field
   if(Validator.isEmpty(data.passwordCheck)) {
-    errors.passwordCheck = 'Password must be confirmed'
-  }
+    errors.passwordCheck = 'Password must be confirmed to register'
+  } else {
   //check passwordCheck to equal password field
   if(!Validator.equals(data.password, data.passwordCheck)) {
     errors.passwordCheck = 'Passwords must match!'
   }
+}
 
   //
   return {
