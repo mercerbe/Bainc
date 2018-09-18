@@ -8,12 +8,12 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Bainc
+                <h1 className="display-3 mb-4">BaInc
                 </h1>
                 <p className="lead"> Create a profile, share posts and connect with others in the music industry</p>
                 <hr />
-                <a href="register.html" class="btn btn-lg btn-info mr-2">Sign Up</a>
-                <a href="login.html" class="btn btn-lg btn-light">Login</a>
+                <a href="register.html" className="btn btn-lg btn-info mr-2">Sign Up</a>
+                <a href="login.html" className="btn btn-lg btn-light">Login</a>
               </div>
             </div>
           </div>
