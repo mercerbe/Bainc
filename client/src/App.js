@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 //router
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+//redux
+import { Provider } from 'react-redux'
+import store from './store'
+//styles
 import './App.css'
 //components
 import Navbar from './components/layout/Navbar'
@@ -9,9 +13,11 @@ import Register from './components/auth/register'
 import Login from './components/auth/login'
 import Footer from './components/layout/Footer'
 
+
 class App extends Component {
   render() {
     return (
+    <Provider store={ store }>
       <Router>
         <div className="App">
           <Navbar />
@@ -23,6 +29,7 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
+    </Provider>
     )
   }
 }
