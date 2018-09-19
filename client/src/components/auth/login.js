@@ -1,7 +1,8 @@
 import React from 'react'
 
 class Login extends React.Component {
-  //component state
+
+  //constructor and component state
   constructor() {
     super()
     //bind 'this'
@@ -14,7 +15,8 @@ class Login extends React.Component {
       errors: {}
     }
   }
-  //events
+
+  //events -- can be switched for arrow functions and remove bind in constructor
   onChange(e) {
     this.setState({[e.target.name]: e.target.value})
   }
@@ -28,6 +30,8 @@ class Login extends React.Component {
     //log user info
     console.log(User)
   }
+
+  //==================render===================//
   render () {
     return (
       <div className="login">

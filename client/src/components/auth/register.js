@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 class Register extends React.Component {
 
@@ -30,8 +31,11 @@ class Register extends React.Component {
       password: this.state.password,
       passwordCheck: this.state.passwordCheck
     }
-    //log user info
-    console.log(newUser)
+    //axios to submit new user to api
+    axios
+      .post('/api/users/register', newUser)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err.response.data))//log specific error messages from api
   }
   render () {
     return (
