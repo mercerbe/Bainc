@@ -7,7 +7,7 @@ import store from './store'
 //track token
 import jwt_decode from 'jwt-decode'
 import setAuthToken from './utils/setAuthToken'
-import { setCurrentUser } from './actions/authActions'
+import { setCurrentUser, logoutUser } from './actions/authActions'
 //styles
 import './App.css'
 //components
@@ -25,6 +25,16 @@ if(localStorage.jwtToken) {
   const decoded = jwt_decode(localStorage.jwtToken)
   //set user and is authenticated
   store.dispatch(setCurrentUser(decoded))
+  //check for exp token
+  const currentTime = Date.now() / 1000
+  if(decoded.exp < currentTime) {
+    //autologout user
+    store.dispatch(logoutUser())
+    //clear current profile
+    //add code here
+    //redirect to home
+    window.location.href = '/'
+  }
 }
 
 

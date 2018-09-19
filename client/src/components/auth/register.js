@@ -26,6 +26,12 @@ class Register extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if(this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard')
+    }
+  }
+
   //props from redux state -- put in from mapStateToProps
   componentWillReceiveProps(nextProps) {
     if(nextProps.errors) {

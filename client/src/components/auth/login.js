@@ -20,6 +20,12 @@ class Login extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if(this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard')
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     //check for auth
     if(nextProps.auth.isAuthenticated){
