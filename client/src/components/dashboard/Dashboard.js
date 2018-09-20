@@ -9,14 +9,51 @@ class Dashboard extends React.Component {
     this.props.getCurrentProfile()
   }
 
-
   render () {
+    //ensure profile state is not null
+
+    //USER STILL DEFINED BUT NEVER USED -- 9/48
+    const { user } = this.props.auth
+    //=====================================//
+
+
+    const { profile, loading } = this.props.profile
+
+    //dashboard
+    let dashboardContent
+    //for content
+    if(profile === null || loading) {
+      dashboardContent = <h4>loading...</h4>
+    } else {
+      dashboardContent = <h1>It works</h1>
+    }
+
+
     return(
-      <div>
+      <div className="dashboard">
+        <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h1 className="display-4">Dashboard</h1>
+            {dashboardContent}
+          </div>
+        </div>
+        </div>
         <h1>dashboard</h1>
       </div>
     )
   }
 }
 
-export default connect(null, { getCurrentProfile })(Dashboard)
+Dashboard.propTypes = {
+  getCurrentProfile: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  profile: state.profile,
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, { getCurrentProfile })(Dashboard)
