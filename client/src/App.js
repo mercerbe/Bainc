@@ -8,6 +8,7 @@ import store from './store'
 import jwt_decode from 'jwt-decode'
 import setAuthToken from './utils/setAuthToken'
 import { setCurrentUser, logoutUser } from './actions/authActions'
+import { clearCurrentProfile } from './actions/profileActions'
 //styles
 import './App.css'
 //components
@@ -16,6 +17,7 @@ import Landing from './components/layout/Landing'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Footer from './components/layout/Footer'
+import Dashboard from './components/dashboard/Dashboard.js'
 
 //check for token on every page req
 if(localStorage.jwtToken) {
@@ -31,7 +33,7 @@ if(localStorage.jwtToken) {
     //autologout user
     store.dispatch(logoutUser())
     //clear current profile
-    //add code here
+    store.dispatch(clearCurrentProfile())
     //redirect to home
     window.location.href = '/'
   }
@@ -48,7 +50,8 @@ class App extends Component {
           <Route exact path="/" component={ Landing } />
           <div className="container">
             <Route exact path="/register" component={ Register } />
-            <Route exact path="/login" component={ Login} />
+            <Route exact path="/login" component={ Login } />
+            <Route exact path="/dashboard" component={ Dashboard } />
           </div>
           <Footer />
         </div>
