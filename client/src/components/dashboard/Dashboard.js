@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getCurrentProfile } from '../../actions/profileActions'
+//import loader
+import Spinner from '../common/Spinner'
 
 class Dashboard extends React.Component {
   //want profile to load right away, so use componentDidMount lifecyle method
@@ -23,7 +25,7 @@ class Dashboard extends React.Component {
     let dashboardContent
     //for content
     if(profile === null || loading) {
-      dashboardContent = <h4>loading...</h4>
+      dashboardContent = <Spinner />
     } else {
       dashboardContent = <h1>It works</h1>
     }
@@ -39,7 +41,6 @@ class Dashboard extends React.Component {
           </div>
         </div>
         </div>
-        <h1>dashboard</h1>
       </div>
     )
   }
