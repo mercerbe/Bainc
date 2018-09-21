@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getCurrentProfile } from '../../actions/profileActions'
@@ -27,7 +28,23 @@ class Dashboard extends React.Component {
     if(profile === null || loading) {
       dashboardContent = <Spinner />
     } else {
-      dashboardContent = <h1>It works</h1>
+      // //test:// dashboardContent = <h1>As a test, it works!</h1>
+      //Check for logged in user data, if greater than 0, user profile must exist
+      if(Object.keys(profile).length > 0) {
+        dashboardContent = <h4>Todo: display profile </h4>
+      } else {
+        // user is logged in but hasn't created a profile for the account
+        dashboardContent = (
+          <div>
+            <p className="lead text-muted">Welcome { user.name }</p>
+            <p> You do not have a profile! Set up a profile to connect with everyone on Bainc. </p>
+            <Link to="/create-profile" className="btn btn-lg btn-info">
+              Create Profile
+            </Link>
+          </div>
+        )
+      }
+
     }
 
 
