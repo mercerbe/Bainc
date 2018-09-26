@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 //import action for component
 import { registerUser } from '../../actions/authActions'
 //import functional components
-import TextFieldGroup from '../common/textFieldGroup'
+import TextFieldGroup from '../common/TextFieldGroup'
 
 class Register extends React.Component {
 
