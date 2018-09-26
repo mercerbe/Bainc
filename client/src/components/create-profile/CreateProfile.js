@@ -57,7 +57,7 @@ class CreateProfile extends React.Component {
               <small className="d-block pb-3"> * = required fields</small>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
-                  placeholder="* YourName"
+                  placeholder="* YourProfileName"
                   name="handle"
                   value={this.state.handle}
                   onChange={this.onChange}
