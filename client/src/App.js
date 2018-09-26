@@ -19,6 +19,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Footer from './components/layout/Footer'
 import Dashboard from './components/dashboard/Dashboard.js'
+import CreateProfile from './components/create-profile/CreateProfile'
 
 //check for token on every page req
 if(localStorage.jwtToken) {
@@ -54,6 +55,7 @@ class App extends Component {
             <Route exact path="/login" component={ Login } />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={ Dashboard } />
+              <PrivateRoute exact path="/create-profile" component={ CreateProfile } />
             </Switch>
           </div>
           <Footer />
