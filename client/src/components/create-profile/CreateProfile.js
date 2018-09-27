@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 //textFieldGroup
 import TextFieldGroup from '../common/TextFieldGroup'
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup'
-import InputGroupGroup from '../common/InputGroup'
+import InputGroup from '../common/InputGroup'
 import SelectListGroup from '../common/SelectListGroup'
 
 class CreateProfile extends React.Component {
@@ -44,7 +44,66 @@ class CreateProfile extends React.Component {
 
   //render
   render () {
-    const { errors } = this.state
+    const { errors, displaySocialInputs } = this.state
+    //init social inputs
+    let socialInputs
+    if(displaySocialInputs) {
+      socialInputs = (
+        <div>
+          <InputGroup
+            placeholder="Twitter profile URL"
+            name="twitter"
+            icon="fab fa-twitter"
+            value={this.state.twitter}
+            onChange={this.onChange}
+            error={errors.twitter}
+          />
+          <InputGroup
+            placeholder="Facebook profile URL"
+            name="facebook"
+            icon="fab fa-facebook"
+            value={this.state.facebook}
+            onChange={this.onChange}
+            error={errors.facebook}
+          />
+          <InputGroup
+            placeholder="Linkedin profile URL"
+            name="linkedin"
+            icon="fab fa-linkedin"
+            value={this.state.linkedin}
+            onChange={this.onChange}
+            error={errors.linkedin}
+          />
+          <InputGroup
+            placeholder="Youtube profile URL"
+            name="youtube"
+            icon="fab fa-youtube"
+            value={this.state.youtube}
+            onChange={this.onChange}
+            error={errors.youtube}
+          />
+          <InputGroup
+            placeholder="Instagram profile URL"
+            name="instagram"
+            icon="fab fa-instagram"
+            value={this.state.instagram}
+            onChange={this.onChange}
+            error={errors.instagram}
+          />
+        </div>
+      )
+    }
+    //options for status
+    const options = [
+      { label: '* Select Professional Status', value: 0 },
+      { label: 'Producer', value: 'Producer'},
+      { label: 'Manager', value: 'Manager'},
+      { label: 'Band', value: 'Band'},
+      { label: 'Engineer', value: 'Engineer'},
+      { label: 'Promoter', value: 'Promoter'},
+      { label: 'Studio Musician', value: 'Studio Musician'},
+      { label: 'Other', value: 'Other'}
+    ]
     return (
       <div className="create-profile">
         <div className="container">
@@ -64,6 +123,77 @@ class CreateProfile extends React.Component {
                   error={errors.handle}
                   info="A unique handle for your profile"
                   />
+                <SelectListGroup
+                  placeholder="Status"
+                  name="Status"
+                  value={this.state.status}
+                  options={options}
+                  onChange={this.onChange}
+                  error={errors.status}
+                  info="Tell everyone what you do in the industry"
+                />
+                <TextFieldGroup
+                  placeholder="Company/Band"
+                  name="company"
+                  value={this.state.company}
+                  onChange={this.onChange}
+                  error={errors.company}
+                  info="Company you work for or band name"
+                  />
+                <TextFieldGroup
+                  placeholder="Website"
+                  name="website"
+                  value={this.state.website}
+                  onChange={this.onChange}
+                  error={errors.website}
+                  info="Your website"
+                  />
+                <TextFieldGroup
+                  placeholder="Location"
+                  name="location"
+                  value={this.state.location}
+                  onChange={this.onChange}
+                  error={errors.location}
+                  info="City or city & state"
+                  />
+                <TextFieldGroup
+                  placeholder="Skills"
+                  name="skills"
+                  value={this.state.skills}
+                  onChange={this.onChange}
+                  error={errors.skills}
+                  info="Please use comma separated values (e.g. Guitar, Pro tools, Analog Audio)"
+                  />
+                <TextFieldGroup
+                  placeholder="Spotify Username"
+                  name="spotifyusername"
+                  value={this.state.spotifyusername}
+                  onChange={this.onChange}
+                  error={errors.spotifyusername}
+                  info="If you'd like to link your playlists or music"
+                  />
+                <TextAreaFieldGroup
+                    placeholder="Short Bio"
+                    name="bio"
+                    value={this.state.bio}
+                    onChange={this.onChange}
+                    error={errors.bio}
+                    info="Tell everyone a little about yourself"
+                  />
+                <div className='mb-3'>
+                  <button
+                      onClick={() => {
+                      this.setState(prevState => ({
+                        displaySocialInputs: !prevState.displaySocialInputs
+                      }))
+                    }}
+                      className="btn btn-light">
+                      Add Social Network Links
+                  </button>
+                  <span className="text-muted">Optional</span>
+                </div>
+                {socialInputs}
+                <input type="submit" value="Submit" className="btn btn-info btn-block mt-4"/>
               </form>
             </div>
           </div>
