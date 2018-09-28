@@ -48,7 +48,6 @@ class Dashboard extends React.Component {
             <ProfileActions />
             <Experience experience={profile.experience}/>
             <Education education={profile.education}/>
-            {/* todo: exp and education*/}
 
             <div style={{marginBottom: '60px'}} />
             <button

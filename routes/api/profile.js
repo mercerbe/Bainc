@@ -131,7 +131,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
   //youtube
   if(req.body.youtube) { profileFields.social.youtube = req.body.youtube }
   //twitter
-  if(req.body.twitter) { profileFields.twitter.youtube = req.body.twitter }
+  if(req.body.twitter) { profileFields.social.twitter = req.body.twitter }
   //facebook
   if(req.body.facebook) { profileFields.social.facebook = req.body.facebook }
   //linkedin

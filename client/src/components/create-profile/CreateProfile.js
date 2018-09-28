@@ -187,7 +187,7 @@ componentWillReceiveProps(nextProps) {
                   info="Please use comma separated values (e.g. Guitar, Pro tools, Analog Audio)"
                   />
                 <TextFieldGroup
-                  placeholder="Spotify Username"
+                  placeholder="Spotify URL -> the link under 'copy URL'"
                   name="spotifyusername"
                   value={this.state.spotifyusername}
                   onChange={this.onChange}
