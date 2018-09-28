@@ -61,7 +61,6 @@ componentWillReceiveProps(nextProps) {
     this.props.createProfile(profileData, this.props.history)
   }
   onChange(e) {
-    e.preventDefault()
     this.setState({ [e.target.name]: e.target.value })
   }
 
@@ -148,7 +147,7 @@ componentWillReceiveProps(nextProps) {
                   />
                 <SelectListGroup
                   placeholder="Status"
-                  name="Status"
+                  name="status"
                   value={this.state.status}
                   options={options}
                   onChange={this.onChange}
