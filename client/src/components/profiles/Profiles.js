@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import Spinner from '../common/Spinner'
 //get profiles action
 import { getProfiles } from '../../actions/profileActions'
+//import individual profile items
+import ProfileItem from './ProfileItem'
 
 class Profiles extends React.Component {
 
@@ -23,7 +25,9 @@ class Profiles extends React.Component {
     } else {
       if(profiles.length > 0) {
         //if profiles are found
-        profileItems = <h1> Profiles go here... </h1>
+        profileItems = profiles.map(profile => (
+          <ProfileItem key={profile._id} profile={profile}/>
+        ))
       } else {
         profileItems = <h4>No profiles found... </h4>
       }
