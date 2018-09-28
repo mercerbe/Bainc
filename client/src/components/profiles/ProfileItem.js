@@ -1,3 +1,4 @@
+//TODO: more responsive images and skill set options for mobile, include spotify link to profile items 
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
