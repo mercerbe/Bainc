@@ -5,7 +5,10 @@ import { connect } from 'react-redux'
 import { getCurrentProfile, deleteAccount } from '../../actions/profileActions'
 //import loader
 import Spinner from '../common/Spinner'
+//actions
 import ProfileActions from './ProfileActions'
+//experience
+import Experience from './Experience'
 
 class Dashboard extends React.Component {
   //want profile to load right away, so use componentDidMount lifecyle method
@@ -41,7 +44,9 @@ class Dashboard extends React.Component {
           <div>
             <p className="lead text-muted">Welcome <Link to={`/profile/${profile.handle}`}>{ user.name } </Link></p>
             <ProfileActions />
+            <Experience experience={profile.experience}/>
             {/* todo: exp and education*/}
+
             <div style={{marginBottom: '60px'}} />
             <button
               className="btn btn-danger"
