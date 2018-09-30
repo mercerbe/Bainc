@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Moment from 'react-moment';
+import React, { Component } from 'react'
+import Moment from 'react-moment'
 
 class ProfileCreds extends Component {
   render() {
@@ -61,7 +61,7 @@ class ProfileCreds extends Component {
           )}
         </p>
       </li>
-    ));
+    ))
     return (
       <div className="row">
         <div className="col-md-6">
@@ -82,8 +82,8 @@ class ProfileCreds extends Component {
           )}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default ProfileCreds;
+export default ProfileCreds
