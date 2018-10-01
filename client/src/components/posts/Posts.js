@@ -8,7 +8,7 @@ import { getPosts } from '../../actions/postActions'
 
 class Posts extends Component {
   componentDidMount() {
-    this.props.getPosts();
+    this.props.getPosts()
   }
 
   render() {
@@ -32,7 +32,7 @@ class Posts extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
