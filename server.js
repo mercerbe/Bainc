@@ -5,6 +5,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 //body parser
 const bodyParser = require('body-parser')
+//path
+const path = require('path')
 //set app for express
 const app = express()
 //passport
@@ -44,6 +46,18 @@ app.get('/', (req, res) => res.send('init'))
 app.use('/api/users', users)
 app.use('/api/profile', profile)
 app.use('/api/posts', posts)
+//===============================================//
+
+//==========================Production================//
+if(process.env.NODE_ENV === 'production') {
+  //set static folder to serve
+  app.use(express.static('client/build'))
+
+  //routes
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
 //===============================================//
 
 
