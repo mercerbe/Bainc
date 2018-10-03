@@ -12,13 +12,18 @@ const initialState = {}
 const middleware = [thunk]
 
 //set store -- reducer array--rootReducer, state obj, middleware with spread
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+// Developer tools middleware
+const composeSetup =
+  process.env.NODE_ENV !== "production" &&
+  typeof window === "object" &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : compose
+
 const store = createStore(
   rootReducer,
   initialState,
-  composeEnhancers(
-    applyMiddleware(...middleware)
-  )
+  composeSetup(applyMiddleware(...middleware))
 )
 
 // ========= appears to only work with browers that have redux devtools installed ==========//
