@@ -24,7 +24,7 @@ class Landing extends Component {
                 </h1>
                 <p className="lead">
                   {' '}
-                  Connect with others in the music industry
+                  Connect With the Music Industry
                 </p>
                 <hr style={{borderColor: 'white'}}/>
                 <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
