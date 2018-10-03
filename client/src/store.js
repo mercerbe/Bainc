@@ -20,6 +20,8 @@ const store = createStore(
     applyMiddleware(...middleware)
   )
 )
+
+// ========= appears to only work with browers that have redux devtools installed ==========//
 // const store = createStore(
 //   rootReducer,
 //   initialState,
@@ -29,5 +31,6 @@ const store = createStore(
 //     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 //   )
 // )
+// ========================================================================================//
 
 export default store

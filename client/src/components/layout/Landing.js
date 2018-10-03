@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+//may remove {} from PropTypes
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 
@@ -21,7 +22,10 @@ class Landing extends Component {
               <div className="col-md-12 text-center">
                 <h1 className="display-3 mb-4">Bainc
                 </h1>
-                <p className="lead">Connect with others in the music industry</p>
+                <p className="lead">
+                  {' '}
+                  Connect with others in the music industry
+                </p>
                 <hr style={{borderColor: 'white'}}/>
                 <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
                 <Link to="/login" className="btn btn-lg btn-light">Login</Link>

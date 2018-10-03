@@ -17,7 +17,6 @@ import Navbar from './components/layout/Navbar'
 import Landing from './components/layout/Landing'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
-import Footer from './components/layout/Footer'
 import Dashboard from './components/dashboard/Dashboard.js'
 import CreateProfile from './components/create-profile/CreateProfile'
 import EditProfile from './components/edit-profile/EditProfile'
@@ -54,7 +53,7 @@ class App extends Component {
     return (
     <Provider store={ store }>
       <Router>
-        <div className="App" style={{backgroundColor: '#cacec9', height: '100%'}}>
+        <div className="App">
           <Navbar />
           <Route exact path="/" component={ Landing } />
           <div className="container">
@@ -84,7 +83,6 @@ class App extends Component {
               <PrivateRoute exact path="/post/:id" component={ Post } />
             </Switch>
           </div>
-          <Footer />
         </div>
       </Router>
     </Provider>
