@@ -27,7 +27,7 @@ class PostForm extends Component {
 
     //destruct user from auth state
     const { user } = this.props.auth
-    //create new post 
+    //create new post
     const newPost = {
       text: this.state.text,
       name: user.name,
@@ -46,10 +46,12 @@ class PostForm extends Component {
     const { errors } = this.state;
 
     return (
+
       <div className="post-form mb-3">
         <div className="card card-info">
           <div className="card-header bg-info text-white">Say Somthing...</div>
           <div className="card-body">
+            <p><small>Confirm that you're logged in to create, like and comment on posts</small></p>
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <TextAreaFieldGroup
@@ -67,6 +69,7 @@ class PostForm extends Component {
           </div>
         </div>
       </div>
+
     )
   }
 }

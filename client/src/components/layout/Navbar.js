@@ -44,13 +44,16 @@ class Navbar extends Component {
         <li className="nav-item">
           <Link className="nav-link" to="/login">Login</Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/feed">Posts</Link>
+        </li>
       </ul>
     )
     //================================================//
 
     //return standard jsx
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+      <nav className="navbar navbar-expand-sm navbar-dark mb-4" style={{backgroundColor:'black'}}>
         <div className="container">
           <Link className="navbar-brand" to="/">Bainc</Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">

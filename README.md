@@ -5,6 +5,12 @@
 ![npm](https://img.shields.io/npm/v/npm.svg)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
+##Local Development
+- clone this repository
+- cd your/path/to/BaincClone
+- ```npm install``` in root directory to install dependencies.
+- ```npm run dev``` to start development environment. View app on localhost:3000.
+
 ## Contributors
 
 | <a href="http://github.com/mercerbe" target="_blank">**Ben Mercer**</a> |
