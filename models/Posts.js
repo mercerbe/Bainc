@@ -18,7 +18,11 @@ const PostSchema = new Schema({
   },
   avatar: {
     type: String
-  }, //each like associated to the user who liked it -- not perimitting multiple likes
+  },
+  handle: {
+    type: String
+  },
+  //each like associated to the user who liked it -- not perimitting multiple likes
   likes: [
     {
       user: {

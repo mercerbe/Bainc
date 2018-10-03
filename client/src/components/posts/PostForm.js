@@ -43,7 +43,7 @@ class PostForm extends Component {
   }
 
   render() {
-    const { errors } = this.state;
+    const { errors } = this.state
 
     return (
 
@@ -51,7 +51,7 @@ class PostForm extends Component {
         <div className="card card-info">
           <div className="card-header bg-info text-white">Say Somthing...</div>
           <div className="card-body">
-            <p><small>Confirm that you're logged in to create, like and comment on posts</small></p>
+            <p><small>Confirm that you're logged in to submit, like and comment on posts</small></p>
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <TextAreaFieldGroup

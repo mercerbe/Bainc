@@ -28,13 +28,13 @@ class PostItem extends Component {
   }
 
   render() {
-    const { post, auth, showActions } = this.props
+    const { post, auth, showActions, profile } = this.props
 
     return (
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-md-2">
-            <a href="profile.html">
+            <a href={`/profile/${post.handle}`}>
               <img
                 className="rounded-circle d-none d-md-block"
                 src={post.avatar}
@@ -97,7 +97,8 @@ PostItem.propTypes = {
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  profile: PropTypes.object
 }
 
 const mapStateToProps = state => ({

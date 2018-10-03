@@ -51,7 +51,8 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     text: req.body.text,
     name: req.body.name,
     avatar: req.body.avatar,
-    user: req.user.id
+    user: req.user.id,
+    handle: req.body.handle
   })
 
   newPost.save().then(post => res.json(post))
@@ -162,7 +163,7 @@ router.delete('/comment/:id/:comment_id', passport.authenticate('jwt', { session
       if(post.comments.filter(comment => comment._id.toString() === req.params.comment_id).length = 0) {
         return res.status(404).json({ commentnotfound: 'There is no comment found to delete'})
       }
-      //get remove index 
+      //get remove index
       const removeIndex = post.comments
         .map(item => item._id.toString())
         .indexOf(req.params.comment_id)
