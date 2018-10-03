@@ -42,7 +42,6 @@ require('./config/passport.js')(passport)
 
 
 //==========================routes================//
-app.get('/', (req, res) => res.send('init'))
 app.use('/api/users', users)
 app.use('/api/profile', profile)
 app.use('/api/posts', posts)
