@@ -120,6 +120,7 @@ componentWillReceiveProps(nextProps) {
       { label: '* Select Professional Status', value: 0 },
       { label: 'Producer', value: 'Producer'},
       { label: 'Manager', value: 'Manager'},
+      { label: 'Label', value: 'Label'},
       { label: 'Band', value: 'Band'},
       { label: 'Engineer', value: 'Engineer'},
       { label: 'Promoter', value: 'Promoter'},
@@ -187,12 +188,12 @@ componentWillReceiveProps(nextProps) {
                   info="Please use comma separated values (e.g. Guitar, Pro tools, Analog Audio)"
                   />
                 <TextFieldGroup
-                  placeholder="Spotify URL -> the link under 'copy URL'"
+                  placeholder="Spotify URI (menu->share->'copy spotify URI')"
                   name="spotifyusername"
                   value={this.state.spotifyusername}
                   onChange={this.onChange}
                   error={errors.spotifyusername}
-                  info="If you'd like to link your playlists or music"
+                  info="Link your Spotify account with a follow button"
                   />
                 <TextAreaFieldGroup
                     placeholder="Short Bio"

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import isEmpty from '../../validation/is-empty'
+import ProfileSpotify from './ProfileSpotify'
 
 class ProfileHeader extends Component {
   render() {
-    const { profile } = this.props;
+    const { profile } = this.props
 
     return (
       <div className="row">
@@ -88,6 +89,13 @@ class ProfileHeader extends Component {
                   </a>
                 )}
               </p>
+              {/* spotify follow here */}
+              {profile.spotifyusername ? (
+                  <ProfileSpotify
+                    profile={profile}
+                    />
+                ) : null}
+
             </div>
           </div>
         </div>

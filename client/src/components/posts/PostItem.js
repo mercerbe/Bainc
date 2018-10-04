@@ -3,7 +3,10 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import classnames from 'classnames'
 import { Link } from 'react-router-dom'
+//post actions
 import { deletePost, addLike, removeLike } from '../../actions/postActions'
+//get profiles action
+import { getProfiles } from '../../actions/profileActions'
 
 class PostItem extends Component {
   onDeleteClick(id) {
@@ -18,6 +21,10 @@ class PostItem extends Component {
     this.props.removeLike(id)
   }
 
+  componentDidMount() {
+    this.props.getProfiles()
+  }
+
   findUserLike(likes) {
     const { auth } = this.props
     if (likes.filter(like => like.user === auth.user.id).length > 0) {
@@ -28,7 +35,7 @@ class PostItem extends Component {
   }
 
   render() {
-    const { post, auth, showActions, profile } = this.props
+    const { post, auth, showActions } = this.props
 
     return (
       <div className="card card-body mb-3">
@@ -98,13 +105,13 @@ PostItem.propTypes = {
   removeLike: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object
+  profile: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, { deletePost, addLike, removeLike })(
+export default connect(mapStateToProps, { deletePost, addLike, removeLike, getProfiles })(
   PostItem
 )

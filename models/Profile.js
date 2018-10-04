@@ -34,7 +34,7 @@ const ProfileSchema = new Schema({
   bio: {
     type: String
   },
-  spotifyId: {
+  spotifyusername: {
     type: String
   },//switch with spotify from github, needs to be the user id or artist id
   experience: [

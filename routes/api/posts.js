@@ -39,7 +39,6 @@ router.get('/:id', (req, res) => {
 //@desc Create new post
 //@access Private
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-
   //init errors and isEmpty
   const { errors, isValid } = validatePostInput(req.body)
   //validation
