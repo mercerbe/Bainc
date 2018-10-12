@@ -54,7 +54,7 @@ class App extends Component {
     return (
     <Provider store={ store }>
       <Router>
-        <div className="App" style={{backgroundColor: '#f4f3f3'}}>
+        <div className="App" style={{backgroundColor: '#f4f3f3', paddingBottom: '25px'}}>
           <Navbar />
           <Route exact path="/" component={ Landing } />
           <div className="container">
@@ -78,7 +78,7 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/add-education" component={ AddEducation } />
             </Switch>
-            
+
             <Switch>
               <PrivateRoute exact path="/post/:id" component={ Post } />
             </Switch>

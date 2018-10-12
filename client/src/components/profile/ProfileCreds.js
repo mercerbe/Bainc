@@ -63,7 +63,7 @@ class ProfileCreds extends Component {
       </li>
     ))
     return (
-      <div className="row">
+      <div className="row row-eq-height">
         <div className="col-md-6">
           <h3 className="text-center text-info">Experience</h3>
           {expItems.length > 0 ? (

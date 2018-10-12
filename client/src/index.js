@@ -7,7 +7,7 @@ import Footer from './components/layout/Footer'
 
 ReactDOM.render(
   <div>
-  <App />
-  <Footer />
+  <App/>
+  <Footer/>
   </div>, document.getElementById('root'));
 registerServiceWorker();

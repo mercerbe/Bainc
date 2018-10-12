@@ -23,6 +23,7 @@ class CreateProfile extends React.Component {
       skills: '',
       spotifyusername: '',
       spotifyplay: '',
+      profilevideo: '',
       bio: '',
       twitter: '',
       facebook: '',
@@ -52,6 +53,7 @@ componentWillReceiveProps(nextProps) {
       skills: this.state.skills,
       spotifyusername: this.state.spotifyusername,
       spotifyplay: this.state.spotifyplay,
+      profilevideo: this.state.profilevideo,
       bio: this.state.bio,
       twitter: this.state.twitter,
       facebook: this.state.facebook,
@@ -197,14 +199,22 @@ componentWillReceiveProps(nextProps) {
                   error={errors.spotifyusername}
                   info="Link your Spotify account with a follow button"
                   />
-                  <TextFieldGroup
-                    placeholder="Spotify Link (menu->share->'copy Spotify URI')"
-                    name="spotifyplay"
-                    value={this.state.spotifyplay}
-                    onChange={this.onChange}
-                    error={errors.spotifyplay}
-                    info="Link a Spotify album to showcase your work"
-                    />
+                <TextFieldGroup
+                  placeholder="Spotify Link (menu->share->'copy Spotify URI')"
+                  name="spotifyplay"
+                  value={this.state.spotifyplay}
+                  onChange={this.onChange}
+                  error={errors.spotifyplay}
+                  info="Link a Spotify album to showcase your work"
+                  />
+                <TextFieldGroup
+                  placeholder="Place your Youtube video link"
+                  name="profilevideo"
+                  value={this.state.profilevideo}
+                  onChange={this.onChange}
+                  error={errors.profilevideo}
+                  info="Link a Youtube video to your profile"
+                  />
                 <TextAreaFieldGroup
                     placeholder="Short Bio"
                     name="bio"

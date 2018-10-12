@@ -40,6 +40,9 @@ const ProfileSchema = new Schema({
   spotifyplay: {
     type: String
   },
+  profilevideo: {
+    type: String
+  },
   experience: [
     {
       title: {
