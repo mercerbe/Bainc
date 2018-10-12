@@ -25,6 +25,7 @@ class CreateProfile extends React.Component {
       status: '',
       skills: '',
       spotifyusername: '',
+      spotifyplay: '',
       bio: '',
       twitter: '',
       facebook: '',
@@ -57,6 +58,7 @@ componentWillReceiveProps(nextProps) {
     profile.website = !isEmpty(profile.website) ? profile.website : ''
     profile.location = !isEmpty(profile.location) ? profile.location : ''
     profile.spotifyusername = !isEmpty(profile.spotifyusername) ? profile.spotifyusername : ''
+    profile.spotifyplay = !isEmpty(profile.spotifyplay) ? profile.spotifyplay : ''
     profile.bio = !isEmpty(profile.bio) ? profile.bio : ''
     profile.social = !isEmpty(profile.social) ? profile.social : {}
     profile.twitter = !isEmpty(profile.social.twitter) ? profile.social.twitter : ''
@@ -74,6 +76,7 @@ componentWillReceiveProps(nextProps) {
       status: profile.status,
       skills: skillsCSV,
       spotifyusername: profile.spotifyusername,
+      spotifyplay: profile.spotifyplay,
       bio: profile.bio,
       twitter: profile.twitter,
       facebook: profile.facebook,
@@ -94,6 +97,7 @@ componentWillReceiveProps(nextProps) {
       status: this.state.status,
       skills: this.state.skills,
       spotifyusername: this.state.spotifyusername,
+      spotifyplay: this.state.spotifyplay,
       bio: this.state.bio,
       twitter: this.state.twitter,
       facebook: this.state.facebook,
@@ -238,6 +242,14 @@ componentWillReceiveProps(nextProps) {
                   onChange={this.onChange}
                   error={errors.spotifyusername}
                   info="Link your Spotify account with a follow button"
+                  />
+                <TextFieldGroup
+                  placeholder="Spotify URI (menu->share->'copy URI')"
+                  name="spotifyplay"
+                  value={this.state.spotifyplay}
+                  onChange={this.onChange}
+                  error={errors.spotifyplay}
+                  info="Link a Spotify album to showcase your work"
                   />
                 <TextAreaFieldGroup
                     placeholder="Short Bio"

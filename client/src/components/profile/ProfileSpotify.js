@@ -11,10 +11,11 @@ class ProfileSpotify extends Component {
     return (
       <div style={{alignSelf: 'stretch', textAlign: 'center'}}>
         {profile.spotifyusername ? (
-  <iframe           src={`https://open.spotify.com/follow/1/?uri=${profile.spotifyusername}&size=detail&theme=dark`}
+  <iframe
+    src={`https://open.spotify.com/follow/1/?uri=${profile.spotifyusername}&size=detail&theme=dark`}
     width="300"
     height="56" scrolling="no"
-    frameborder="0"
+    frameBorder="0"
     style={{border:'none', overflow:'hidden', marginLeft: '8%'}}
     allowtransparency="true"
     title={Math.random()}>

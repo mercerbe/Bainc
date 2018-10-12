@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import ProfileHeader from './ProfileHeader'
 import ProfileAbout from './ProfileAbout'
 import ProfileCreds from './ProfileCreds'
+import ProfileMedia from './ProfileMedia'
 //spinner
 import Spinner from '../common/Spinner'
 //actions -- get a specific profile by the handle
@@ -44,11 +45,14 @@ class Profile extends Component {
             </div>
             <div className="col-md-6" />
           </div>
-          <ProfileHeader profile={profile} />            
+          <ProfileHeader profile={profile} />
           <ProfileAbout profile={profile} />
           <ProfileCreds
             education={profile.education}
             experience={profile.experience}
+          />
+        <ProfileMedia
+          profile={profile}
           />
         </div>
       )

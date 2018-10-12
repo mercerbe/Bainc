@@ -122,6 +122,10 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
   if(req.body.bio) { profileFields.bio = req.body.bio }
   //spotifyusername
   if(req.body.spotifyusername) { profileFields.spotifyusername = req.body.spotifyusername }
+  //spotifyplay
+  if(req.body.spotifyplay) {
+    profileFields.spotifyplay = req.body.spotifyplay
+  }
   //skills - split into array from CSVs
   if(typeof req.body.skills !== 'undefined') {
     profileFields.skills = req.body.skills.split(',')
