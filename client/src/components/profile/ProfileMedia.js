@@ -8,11 +8,9 @@ class ProfileSpotifyPlay extends Component {
   render() {
     const { profile } = this.props
     //grab url data to link an album
-    let spotifyalbum = profile.spotifyplay
-    let spotifyalbumurl = spotifyalbum.substr(14)
+    let spotifyalbum = profile.spotifyplay.substr(14)
     //grab url data to link a video
-    let profilevideo = profile.profilevideo
-    let profilevideourl = profilevideo.substr(32)
+    let profilevideo = profile.profilevideo.substr(32)
 
     return (
       <div style={{alignSelf: 'stretch', textAlign: 'center'}}>
@@ -23,7 +21,7 @@ class ProfileSpotifyPlay extends Component {
               {profile.spotifyplay ?  (
                 <li className="list-group-item">
                 <iframe
-                  src={`https://open.spotify.com/embed/album/${spotifyalbumurl}`}
+                  src={`https://open.spotify.com/embed/album/${spotifyalbum}`}
                   width="300"
                   height="380"
                   frameBorder="0"
@@ -45,8 +43,8 @@ class ProfileSpotifyPlay extends Component {
                 type="text/html"
                 width="360"
                 height="202.5"
-                src={`https://www.youtube.com/embed/${profilevideourl}?autoplay=0&origin=${profile.profilevideo}`}
-                frameborder="0"
+                src={`https://www.youtube.com/embed/${profilevideo}?autoplay=0&origin=${profile.profilevideo}`}
+                frameBorder="0"
                 title={Math.random()}
                 >
               </iframe>

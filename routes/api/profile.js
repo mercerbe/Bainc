@@ -127,9 +127,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
   //youtube profile video
   if(req.body.profilevideo) { profileFields.profilevideo = req.body.profilevideo }
   //skills - split into array from CSVs
-  if(typeof req.body.skills !== 'undefined') {
-    profileFields.skills = req.body.skills.split(',')
-  }
+  if(typeof req.body.skills !== 'undefined') { profileFields.skills = req.body.skills.split(',') }
   //Social
   profileFields.social = {}
   //youtube
