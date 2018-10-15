@@ -1,0 +1,19 @@
+@media screen and (max-width: 600px) {
+  /* both players */
+  .medialist {
+    background-color: #f4f3f3 !important;
+    border: none !important;
+  }
+  /* spotify player  */
+  #spotifyplayer {
+    width: 250;
+    height: 325;
+    margin-left: -12px;
+  }
+  /* yt player  */
+  #ytplayer {
+    margin-left: -35px;
+    width: 350px;
+    height: 200px;
+  }
+}

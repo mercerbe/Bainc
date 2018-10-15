@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-// import { connect } from 'react-redux'
-// import PropTypes from 'prop-types'
-
+//css for media players
+import './mediaStyle.css'
 
 class ProfileSpotifyPlay extends Component {
 
@@ -19,8 +18,9 @@ class ProfileSpotifyPlay extends Component {
             <div className="col-md-6">
               <h3 className="text-center text-info">Audio</h3>
               {profile.spotifyplay ?  (
-                <li className="list-group-item">
+                <li className="list-group-item medialist">
                 <iframe
+                  id="spotifyplayer"
                   src={`https://open.spotify.com/embed/album/${spotifyalbum}`}
                   width="300"
                   height="380"
@@ -37,7 +37,7 @@ class ProfileSpotifyPlay extends Component {
         <div className="col-md-6">
           <h3 className="text-center text-info">Video</h3>
           {profile.profilevideo ? (
-            <li className="list-group-item">
+            <li className="list-group-item medialist">
               <iframe
                 id="ytplayer"
                 type="text/html"
